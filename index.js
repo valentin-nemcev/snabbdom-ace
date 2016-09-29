@@ -9,7 +9,7 @@ const aceEditorModule = {
 
     create: (oldVnode, vnode) => {
         if (!vnode.data.aceEditor) return;
-        const {mode} = vnode.data.aceEditor;
+        const {mode, options = {}} = vnode.data.aceEditor;
 
         const elm = vnode.elm;
         const aceEl = document.createElement('div');
@@ -20,6 +20,7 @@ const aceEditorModule = {
         editor.setOptions({
             minLines: 3,
             maxLines: Infinity,
+            ...options,
         });
 
         const session = editor.getSession();
