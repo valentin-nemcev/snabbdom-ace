@@ -15,7 +15,8 @@
     "brace": "0.8.0"
   },
   "peerDependencies": {
-    "snabbdom": "0.5.x"
+    "snabbdom": "0.5.x",
+    "dom4": "^1.x.x"
   },
   "devDependencies": {
     "babel-cli": "6.2.4",
