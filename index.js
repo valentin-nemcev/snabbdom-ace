@@ -7,6 +7,19 @@ import 'brace/mode/json';
 const aceEditorModule = {
     _editors: new WeakMap(),
 
+    // https://github.com/ajaxorg/ace/blob/master/lib/ace/commands/default_commands.js
+    // Remove commands that shadow native browser keybindings or require
+    // loading additional code from ext/
+    commandsBlacklist: [
+        'showSettingsMenu',
+        'goToNextError',
+        'goToPreviousError',
+        'gotoline',
+        'find',
+        'jumptomatching',
+        'transposeletters',
+    ],
+
     create: (oldVnode, vnode) => {
         if (!vnode.data.aceEditor) return;
         const {mode, options = {}} = vnode.data.aceEditor;
@@ -22,6 +35,9 @@ const aceEditorModule = {
             maxLines: Infinity,
             ...options,
         });
+
+        aceEditorModule.commandsBlacklist
+            .forEach(c => editor.commands.removeCommand(c));
 
         const session = editor.getSession();
         session.setMode('ace/mode/' + mode);
