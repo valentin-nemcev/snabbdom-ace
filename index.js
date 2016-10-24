@@ -3,6 +3,7 @@ import assert from 'assert';
 import ace from 'brace';
 import 'brace/theme/clouds';
 import 'brace/mode/json';
+import 'brace/ext/searchbox';
 
 const aceEditorModule = {
     _editors: new WeakMap(),
@@ -15,7 +16,6 @@ const aceEditorModule = {
         'goToNextError',
         'goToPreviousError',
         'gotoline',
-        'find',
         'jumptomatching',
         'transposeletters',
     ],
