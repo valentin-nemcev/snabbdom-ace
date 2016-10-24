@@ -1,0 +1,8 @@
+.ace_search {
+    box-sizing: content-box;
+    font-family: sans-serif;
+}
+
+.ace_search button {
+    box-sizing: border-box;
+}

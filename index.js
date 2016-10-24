@@ -5,6 +5,8 @@ import 'brace/theme/clouds';
 import 'brace/mode/json';
 import 'brace/ext/searchbox';
 
+import './index.css';
+
 const aceEditorModule = {
     _editors: new WeakMap(),
 
