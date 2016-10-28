@@ -74,6 +74,7 @@ const aceEditorModule = {
     },
 
     _updateValue(editor, vnode) {
+        vnode.elm.value = vnode.text;
         const selection = editor.session.selection.toJSON();
         editor.setValue(vnode.text != null ? vnode.text : '', -1);
         editor.session.selection.fromJSON(selection);
